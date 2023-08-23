@@ -8,3 +8,9 @@ steps:
       - '--config=vm-deployment.yaml'
       - '--project=$PROJECT_ID'  # Replace $PROJECT_ID with your actual project ID
     timeout: '600s'  # Adjust timeout as needed
+
+options:
+  env:
+    - 'LOGGING_OPTION=CLOUD_LOGGING_ONLY'
+
+logsBucket: onramp-sample-bucket
