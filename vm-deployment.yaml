@@ -1,0 +1,27 @@
+resources:
+- name: git-gcp-vm
+  type: compute.v1.instance
+  properties:
+    zone: us-central1-a
+    machineType: zones/us-central1-a/machineTypes/e2-highmem-2
+    disks:
+      - deviceName: boot
+        type: PERSISTENT
+        boot: true
+        autoDelete: true
+        initializeParams:
+          sourceImage: projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20230628
+          # Specify the source image for the VM. Update the image version as needed.
+    networkInterfaces:
+      - network: global/networks/default
+        accessConfigs:
+          - name: External NAT
+            type: ONE_TO_ONE_NAT
+            # Set up network configuration for the VM
+    metadata:
+      items:
+        - key: startup-script
+          value: |
+            #!/bin/bash
+            # Set up the startup script for the VM.
+            sudo apt-get install -y php
