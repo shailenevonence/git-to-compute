@@ -1,5 +1,5 @@
 resources:
-- name: git-gcp-vm
+- name: git-gcp-vm1
   type: compute.v1.instance
   properties:
     zone: us-central1-a
