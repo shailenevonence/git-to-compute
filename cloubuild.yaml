@@ -1,0 +1,10 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'deployment-manager'
+      - 'deployments'
+      - 'create'
+      - 'my-vm-deployment'  # Name for your deployment, change it as needed
+      - '--config=vm-deployment.yaml'
+      - '--project=$PROJECT_ID'  # Replace $PROJECT_ID with your actual project ID
+    timeout: '600s'  # Adjust timeout as needed
